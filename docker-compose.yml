@@ -52,6 +52,8 @@ services:
     ports:
       - 80:80
       - 443:443
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
     volumes:
       - certs:/etc/nginx/certs:ro
       - vhost.d:/etc/nginx/vhost.d
@@ -64,7 +66,7 @@ services:
     image: nginxproxy/acme-companion
     restart: always
     volumes:
-      - certs:/etc/nginx/certs:rw
+      - certs:/etc/nginx/certs
       - acme:/etc/acme.sh
       - vhost.d:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
