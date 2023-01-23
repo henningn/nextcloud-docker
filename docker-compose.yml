@@ -19,7 +19,7 @@ services:
     restart: always
 
   app:
-    build: ./dockerfiles/full/apache
+    build: ./apache-enriched
     restart: always
     volumes:
       - nextcloud:/var/www/html
@@ -39,7 +39,7 @@ services:
       - default
 
   cron:
-    build: ./dockerfiles/cron/apache
+    image: nextcloud:apache
     restart: always
     volumes:
       - nextcloud:/var/www/html
