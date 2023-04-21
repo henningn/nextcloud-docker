@@ -19,7 +19,7 @@ services:
     restart: always
 
   app:
-    image: nextcloud:apache
+    build: ./apache-enriched
     restart: always
     volumes:
       - nextcloud:/var/www/html:z
