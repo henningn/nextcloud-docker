@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     image: mariadb:lts
-    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW --log_bin_trust_function_creators=1
     restart: always
     volumes:
       - db:/var/lib/mysql:Z
